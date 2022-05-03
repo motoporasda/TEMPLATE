@@ -757,7 +757,7 @@ div.gifdiv {
 div.gifer {
     padding: 20px;
   }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
     div.gifer {
       display: none;
     }
