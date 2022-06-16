@@ -1,0 +1,76 @@
+<html>  
+<head>   
+<title> Stellar host </title>  
+</head>  
+<style>
+  body {
+  background-image: url('images/hero_image_01.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+  body {text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 900;
+  }
+  p {text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 900;
+  }
+  div {text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 900;
+  }
+
+  .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #d400ff;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+  </style>
+<script>  
+function randomStringGenerator() {  
+    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";  
+              
+            //specify the length random new string  
+    var lenString = 8;  
+    var randomstring = '';  
+  
+    for (var i=0; i<lenString; i++) {  
+        var rnum = Math.floor(Math.random() * characters.length);  
+        randomstring += characters.substring(rnum, rnum+1);  
+    }  
+  
+    document.getElementById("randomfield").innerHTML = randomstring;  
+}  
+</script>  
+  
+<body>  
+  <div class="center">
+<h2 style="color: rgb(255, 255, 255)"> Codigo de prueba gratuita </h2>
+</div>
+<h3> Click en el boton de abajo para generar codigo </h3>  
+<form name="randomstring">  
+<input type="button" class="button" value="Generar" onClick="randomStringGenerator();">    
+<b><p id="randomfield" style="color: blueviolet"> </p></b>  
+</form>  
+
+</body>  
+</html>  
