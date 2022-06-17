@@ -15,41 +15,6 @@
   background-size: cover;
 }
   
-     #adBlockerPopup{
-      opacity: 0;
-    }
-    #adBlockerPopup.show{
-      opacity: 1;
-    }
-  #adBlockerPopup{
-    position: fixed;
-    left: 30%;
-    top: 30%;
-    background: #dcdcdc;
-    color: #584f4f;
-    text-align: center;
-    padding: 20px;
-    width: 27%;
-    font-size: 16px;
-    box-shadow: 0px 0px 15px #151414b5;
-  }
-  #okAdBlockerBtn{
-    background-color: #dc0202;
-    color: white;
-    padding: 10px;
-    border: 0px;
-    cursor: pointer;
-  }
-  h3{
-    color: #dc0202;
-    font-size: 25px;
-    margin: 0px;
-  }
-	
-	
-	
-	
-  
 .center {
   display: flex;
   justify-content: center;
@@ -161,28 +126,4 @@ function randomStringGenerator() {
 </script>
   
 </body>  
-	<script>
-let adBlockerClasses = document.getElementById("adBlockerClasses");
-let adBlockerPopup = document.getElementById("adBlockerPopup");
-let okAdBlockerBtn= document.getElementById("okAdBlockerBtn");
-window.addEventListener('load', function(event){
-    addClasses();
-    detectAdBlocker();
-});
-window.addEventListener('click', function(event){
-  adBlockerPopup.classList.remove('show');
-});
-function addClasses(){
-  let adsClasses = ['ad', 'ads', 'adbadge', 'doubleclick', 'BannerAd', 'adsbox', 'ad-placeholder', 'ad-placement'];
-adsClasses.forEach(function(className){
-       adBlockerClasses.classList.add(className);
-})
-}
-function detectAdBlocker(){
-if(!adBlockerPopup.classList.contains('show')){
-   let getPropertyValue = window.getComputedStyle(adBlockerClasses).getPropertyValue('display');
-        getPropertyValue== "none" ? adBlockerPopup.classList.add("show") : adBlockerPopup.classList.remove("show");
-}
-}
-  </script>
 </html>  
