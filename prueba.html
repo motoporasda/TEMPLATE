@@ -4,25 +4,31 @@
 <link rel="shortcut icon" href="images/favicon.ico" />
 </head>  
   
-  <script>fetch('http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js').catch(() => {
-	let adp_underlay = document.createElement('div');
-	adp_underlay.className = 'adp-underlay';
-	document.body.appendChild(adp_underlay);
-	let adp = document.createElement('div');
-	adp.className = 'adp';
-	adp.innerHTML = `
-		<h3>Bloqueador de anuncios detectado</h3>
-		<p>Usamos publisidad para mantener nuestros servidores gratuitos!</p>
-		<button onClick="window.location.reload();">OK lo desactive</button>
-	`;
-	document.body.appendChild(adp);
-	adp.querySelector('a').onclick = e => {
-		e.preventDefault();
-		document.body.removeChild(adp_underlay);
-		document.body.removeChild(adp);
-	};
+<script>
+let adBlockerClasses = document.getElementById("adBlockerClasses");
+let adBlockerPopup = document.getElementById("adBlockerPopup");
+let okAdBlockerBtn= document.getElementById("okAdBlockerBtn");
+window.addEventListener('load', function(event){
+    addClasses();
+    detectAdBlocker();
 });
+window.addEventListener('click', function(event){
+  adBlockerPopup.classList.remove('show');
+});
+function addClasses(){
+  let adsClasses = ['ad', 'ads', 'adbadge', 'doubleclick', 'BannerAd', 'adsbox', 'ad-placeholder', 'ad-placement'];
+adsClasses.forEach(function(className){
+       adBlockerClasses.classList.add(className);
+})
+}
+function detectAdBlocker(){
+if(!adBlockerPopup.classList.contains('show')){
+   let getPropertyValue = window.getComputedStyle(adBlockerClasses).getPropertyValue('display');
+        getPropertyValue== "none" ? adBlockerPopup.classList.add("show") : adBlockerPopup.classList.remove("show");
+}
+}
   </script>
+	
   
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9619116755610796"
      crossorigin="anonymous"></script>
@@ -35,52 +41,40 @@
   background-size: cover;
 }
   
-  .adp {
-	display: flex;
-	box-sizing: border-box;
-	flex-flow: column;
-	position: fixed;
-	z-index: 99999;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 500px;
-	height: 400px;
-	background-color: #ffffff;
-	padding: 20px;
-	border-radius: 5px;
-}
-.adp h3 {
-	border-bottom: 1px solid #eee;
-	margin: 0;
-	padding: 15px 0;
-}
-.adp p {
-	 flex-grow: 1;
-}
-.adp a {
-	display: block;
-	text-decoration: none;
-	width: 100%;
-	background-color: #366ed8;
-	text-align: center;
-	padding: 10px;
-	box-sizing: border-box;
-	color: #ffffff;
-	border-radius: 5px;
-}
-.adp a:hover {
-	background-color: #3368cc;
-}
-.adp-underlay {
-	background-color: rgba(0.5, 0, 0, 0.5);
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	z-index: 99998;
-}
+     #adBlockerPopup{
+      opacity: 0;
+    }
+    #adBlockerPopup.show{
+      opacity: 1;
+    }
+  #adBlockerPopup{
+    position: fixed;
+    left: 30%;
+    top: 30%;
+    background: #dcdcdc;
+    color: #584f4f;
+    text-align: center;
+    padding: 20px;
+    width: 27%;
+    font-size: 16px;
+    box-shadow: 0px 0px 15px #151414b5;
+  }
+  #okAdBlockerBtn{
+    background-color: #dc0202;
+    color: white;
+    padding: 10px;
+    border: 0px;
+    cursor: pointer;
+  }
+  h3{
+    color: #dc0202;
+    font-size: 25px;
+    margin: 0px;
+  }
+	
+	
+	
+	
   
 .center {
   display: flex;
@@ -137,6 +131,13 @@ function randomStringGenerator() {
 </script>  
   
 <body>  
+	<div id="adBlockerClasses"></div>
+<div id="adBlockerPopup">
+  <h3>AdBlock Detected!</h3>
+  <p>Our website needs to display ads to our users. Please, support us by disabling adBlocker from your Browser</p>
+  <button id="okAdBlockerBtn">Okay, I'll Disable</button>
+</div>
+	
   <div class="center">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9619116755610796"
