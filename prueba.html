@@ -4,32 +4,6 @@
 <link rel="shortcut icon" href="images/favicon.ico" />
 </head>  
   
-<script>
-let adBlockerClasses = document.getElementById("adBlockerClasses");
-let adBlockerPopup = document.getElementById("adBlockerPopup");
-let okAdBlockerBtn= document.getElementById("okAdBlockerBtn");
-window.addEventListener('load', function(event){
-    addClasses();
-    detectAdBlocker();
-});
-window.addEventListener('click', function(event){
-  adBlockerPopup.classList.remove('show');
-});
-function addClasses(){
-  let adsClasses = ['ad', 'ads', 'adbadge', 'doubleclick', 'BannerAd', 'adsbox', 'ad-placeholder', 'ad-placement'];
-adsClasses.forEach(function(className){
-       adBlockerClasses.classList.add(className);
-})
-}
-function detectAdBlocker(){
-if(!adBlockerPopup.classList.contains('show')){
-   let getPropertyValue = window.getComputedStyle(adBlockerClasses).getPropertyValue('display');
-        getPropertyValue== "none" ? adBlockerPopup.classList.add("show") : adBlockerPopup.classList.remove("show");
-}
-}
-  </script>
-	
-  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9619116755610796"
      crossorigin="anonymous"></script>
   
@@ -187,4 +161,28 @@ function randomStringGenerator() {
 </script>
   
 </body>  
+	<script>
+let adBlockerClasses = document.getElementById("adBlockerClasses");
+let adBlockerPopup = document.getElementById("adBlockerPopup");
+let okAdBlockerBtn= document.getElementById("okAdBlockerBtn");
+window.addEventListener('load', function(event){
+    addClasses();
+    detectAdBlocker();
+});
+window.addEventListener('click', function(event){
+  adBlockerPopup.classList.remove('show');
+});
+function addClasses(){
+  let adsClasses = ['ad', 'ads', 'adbadge', 'doubleclick', 'BannerAd', 'adsbox', 'ad-placeholder', 'ad-placement'];
+adsClasses.forEach(function(className){
+       adBlockerClasses.classList.add(className);
+})
+}
+function detectAdBlocker(){
+if(!adBlockerPopup.classList.contains('show')){
+   let getPropertyValue = window.getComputedStyle(adBlockerClasses).getPropertyValue('display');
+        getPropertyValue== "none" ? adBlockerPopup.classList.add("show") : adBlockerPopup.classList.remove("show");
+}
+}
+  </script>
 </html>  
