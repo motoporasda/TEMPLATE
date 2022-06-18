@@ -159,7 +159,7 @@ body{
   margin: 5px;
 }
 
-label>input[type="radio"], label>input[type="radio"]:checked~button {display:none}
+label>input[type="button"], label>input[type="button"]:checked~button {display:none}
 
     
   </style>
@@ -197,7 +197,7 @@ function randomStringGenerator() {
       <p>Mantenemos los servidores gratuitos gracias a la publicidad, Desactiva tu adblocker porfavor :)</p>
       <div class="btn">
         <div class="bg-layer"></div>
-        <label><input type="radio" /><button onClick="window.location.reload();">Okay, Lo desactive</button></label>
+        <button onClick="window.location.reload();">Okay, Lo desactive</button>
       </div>
     </div
   </div>
@@ -211,7 +211,7 @@ function randomStringGenerator() {
 </div>
 <h3 style="color: rgb(255, 255, 255)">CLICK EN EL BOTON DE ABAJO PARA GENERAR CODIGO </h3>  
 <form name="randomstring"> 
-<input type="button" class="button" value="GENERAR" onClick="randomStringGenerator();">   
+<label><input type="button" class="button" value="GENERAR" onClick="randomStringGenerator();"></label>
   <br><br>
 <b><p id="randomfield" style="color: rgb(255, 255, 255)"></p></b>  
 </form>  
