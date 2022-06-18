@@ -27,16 +27,25 @@ body{
   background: #9b27ca;
 }
 .wrapper{
-  height: 100vh;
-  background-color: #8A2BE2;
+  position: absolute;
+  max-width: 480px;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 15px;
   opacity: 0;
   pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.06);
   transition: opacity 0.2s 0s ease-in-out,
               transform 0.2s 0s ease-in-out;
 }
 .wrapper.show{
   opacity: 1;
   pointer-events: auto;
+  transform:translate(-50%, -50%) scale(1);
 }
 .wrapper .content,
 .content .warn-icon,
@@ -178,6 +187,22 @@ function randomStringGenerator() {
   
   
     <div id="detect"></div>
+  <div class="wrapper">
+    <div class="content">
+      <div class="warn-icon">
+        <span class="icon"><i class="fas fa-exclamation"></i></span>
+      </div>
+      <h2>AdBlock Detected!</h2>
+      <p>Our website is made possible by displaying ads to our visitors. Please supporting us by whitelisting our website.</p>
+      <div class="btn">
+        <div class="bg-layer"></div>
+        <button>Okay, I'll Whitelist</button>
+      </div>
+    </div
+  </div>
+
+  
+  
     <div class="center">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9619116755610796"
@@ -226,21 +251,9 @@ function randomStringGenerator() {
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
   
-    <div class="wrapper">
-    <div class="content">
-      <div class="warn-icon">
-        <span class="icon"><i class="fas fa-exclamation"></i></span>
-      </div>
-      <h2>AdBlock Detected!</h2>
-      <p>Our website is made possible by displaying ads to our visitors. Please supporting us by whitelisting our website.</p>
-      <div class="btn">
-        <div class="bg-layer"></div>
-        <button>Okay, I'll Whitelist</button>
-      </div>
-    </div
-  </div>
+  
+ 
 
-      
   <script>
     const detect = document.querySelector("#detect");
     const wrapper = document.querySelector(".wrapper");
@@ -253,7 +266,6 @@ function randomStringGenerator() {
     let getProperty = window.getComputedStyle(detect).getPropertyValue("display");
     if(!wrapper.classList.contains("show")){
       getProperty == "none" ? wrapper.classList.add("show") : wrapper.classList.remove("show");
-      getProperty == "none" ? cover.classList.add("show") : cover.classList.remove("show");
     }
     button.addEventListener("click", ()=>{
       wrapper.classList.remove("show");
