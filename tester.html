@@ -159,12 +159,14 @@ body{
   margin: 5px;
 }
 
-label>input[type="button"], label>input[type="button"]:checked~button {display:none}
 
     
   </style>
 <script>  
 function randomStringGenerator() {  
+    var element = document.getElementById("myDiv");
+        element.onclick = "";
+  
     var characters = "stelar12345";  
               
             //specify the length random new string  
@@ -211,7 +213,7 @@ function randomStringGenerator() {
 </div>
 <h3 style="color: rgb(255, 255, 255)">CLICK EN EL BOTON DE ABAJO PARA GENERAR CODIGO </h3>  
 <form name="randomstring"> 
-<label><input type="button" class="button" value="GENERAR" onClick="randomStringGenerator();"></label>
+<input type="button" id="myDiv" class="button" value="GENERAR" onClick="randomStringGenerator();">
   <br><br>
 <b><p id="randomfield" style="color: rgb(255, 255, 255)"></p></b>  
 </form>  
